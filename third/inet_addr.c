@@ -10,12 +10,12 @@ int main(int argc, char* argv[])
 	if(conv_addr == INADDR_NONE)
 		printf("Error occured \n");
 	else
-		printf("Network ordered integer add : %#x \n",conv_addr);
+		printf("Network ordered integer add : %#lx \n",conv_addr);
 		
 		conv_addr = inet_addr(addr2);
 	if(conv_addr == INADDR_NONE)
 		printf("Error occured! \n");
 	else
-		printf("Network ordered integer addr :%#x \n", conv_addr);
+		printf("Network ordered integer addr :%#lx \n", conv_addr);
 	return 0;
 }
