@@ -13,8 +13,8 @@ int main(int argc, char *argv[])
 	
 	printf("Host ordered port: %#x \n", host_port);
 	printf("Network ordered port: %#x \n", net_port);
-	printf("Host ordered address: %#x \n", host_addr);
-	printf("Network ordered address: %#x \n",net_port);
+	printf("Host ordered address: %#lx \n", host_addr);
+	printf("Network ordered address: %#lx \n",net_addr);
 	return 0;
 	
 }
