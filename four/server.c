@@ -34,7 +34,7 @@ int main(int argc, char* argv[])
 
 	memset(&serv_addr, 0, sizeof(serv_addr));//初始化服务端变量信息
 	serv_addr.sin_family = AF_INET;//地址族
-	serv_addr.sin_addr.s_addr = htonl(INADDY_ANY);//IP地址
+	serv_addr.sin_addr.s_addr = htonl(INADDR_ANY);//IP地址
 	serv_addr.sin_port = htons(atoi(argv[1]));//端口号
 
 	//调用bind分配Ip地址和端口号
@@ -65,7 +65,7 @@ int main(int argc, char* argv[])
 }
 
 
-void error_handling(void* message)
+void error_handling(char* message)
 {
 	fputs(message, stderr);
 	fputc('\n', stderr);

@@ -1,14 +1,16 @@
 #include<stdio.h>
 #include<stdlib.h>
 #include<string.h>
-#include<unsitd.h>
+#include<unistd.h>
 #include<sys/socket.h>
 #include<arpa/inet.h>
 
-int main(argc, char* argv[])
+void error_handling(char* message);
+
+int main(int argc, char* argv[])
 {
 	int sock;
-	sockaddr_in serv_sock;
+	struct sockaddr_in serv_sock;
 	char message[30];
 	int str_len;
 
@@ -23,7 +25,7 @@ int main(argc, char* argv[])
 	sock = socket(PF_INET, SOCK_STREAM, 0);
 	if (sock == -1)
 	{
-		print("socket() error!\n");
+		printf("socket() error!\n");
 	}
 
 	//初始化套接字和IPV4变量地址
@@ -46,7 +48,7 @@ int main(argc, char* argv[])
 		error_handling("read() error!");
 	}
 	//输出数据
-	printf("message form the server is: %s", message);
+	printf("message form the server is: %s\n", message);
 
 	close(sock);
 	return 0;
@@ -57,6 +59,6 @@ int main(argc, char* argv[])
 void error_handling(char* message)
 {
 	fputs(message, stderr);
-	fputc('\n', stedrr);
+	fputc('\n', stderr);
 	exit(1);
 }
