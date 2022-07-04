@@ -9,9 +9,8 @@
 
 int main(int argc, char* argv[])
 {
-	struct sockaddr_in serv_addr, clnt_addr;
-	int serv_sock, clnt_sock;
-	socklen_t clnt_sz;
+	struct sockaddr_in serv_addr;
+	int serv_sock;
 	char buf[BUF_SIZE];
 	FILE* fp;
 	int read_cnt;
@@ -22,7 +21,7 @@ int main(int argc, char* argv[])
 		exit(1);
 	}
 
-	fopen("receive.dat", "wb");
+	fp=fopen("receive.c", "wb");
 	serv_sock= socket(PF_INET, SOCK_STREAM, 0);
 	memset(&serv_addr, 0, sizeof(serv_addr));
 	serv_addr.sin_family = AF_INET;
